@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Mvc4HelloWorld.Models.GridModel>
+
+@{
+    ViewBag.Title = "Web Grid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 10);    
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $(".GridSection").hide();
+    });
+    $("#show").click(function(){
+        $(".GridSection").show();
+    });
+});
+</script>
+
+<h2>Web Grid</h2>
+
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+
+ <style type="text/css">
+        .table
+        {
+            margin: 4px;
+            border-collapse: collapse;
+            width: 300px;
+        }
+        .header
+        {
+            background-color: #e5cb4f;
+            font-weight: bold;
+            color: #fff;
+        }
+        .table th, .table td
+        {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+
+<div class="GridSection"  >
+
+@grid.GetHtml(
+ 
+    tableStyle: "table", // applying style on grid
+ 
+    fillEmptyRows: false, 
+    //show empty row when there is only one record on page to it will display all empty rows there.       
+    headerStyle: "header", //applying style.
+    footerStyle: "grid-footer", //applying style.
+ 
+    @*
+    mode: WebGridPagerModes.All, //paging to grid 
+    firstText: "<< First",
+    previousText: "< Prev",
+    nextText: "Next >",
+    lastText: "Last >>", *@
+    
+    columns: new[]  // colums in grid
+    {
+        grid.Column("CustomerId"), //the model fields to display
+        grid.Column("CustomerName"  ),
+        grid.Column("Amount"),
+      
+   })
+
+    </div> 

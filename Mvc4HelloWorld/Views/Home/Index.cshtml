@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+   
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+
+    <div> @Html.ActionLink("Customer", "Index", "Customr")  <br />
+         @Html.ActionLink("Customer wiht SP", "Index", "CustomerSP") <br />
+
+        @Html.ActionLink("Customer", "Index", "CustomerLog")  <br />
+         @Html.ActionLink("Create Customer and Log", "Create", "CustomerLog") 
+        @Html.ActionLink("Add a WebGrid", "WebGrid", "CustomerLog") 
+
+    </div>
+
+}

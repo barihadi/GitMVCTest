@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Mvc4HelloWorld.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+View Data =  @TempData["Message"]
+
+
+
